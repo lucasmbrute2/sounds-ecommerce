@@ -1,5 +1,7 @@
 import { DataSource } from "typeorm"
 import { configEnv } from "../../configs/dotenv"
+import { User } from "../../modules/users/entities/User";
+import { migrations } from "./migrations";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
@@ -9,8 +11,8 @@ export const AppDataSource = new DataSource({
   password: configEnv.typeorm.dbPassword,
   database: configEnv.typeorm.dbName,
   logging: true,
-  entities: [],
-  migrations: []
+  entities: [User],
+  migrations
 })
 
 export async function createConnection(): Promise<void> {
