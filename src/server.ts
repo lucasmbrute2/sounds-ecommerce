@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import express from "express";
-import { createConnection } from "./shared/infra/typeorm/data-source";
+import { createConnection } from "./shared/infra/data-source";
 createConnection()
 
 const app = express();
