@@ -9,7 +9,6 @@ app.get("/", (req, res, next) => {
   res.json({
     message: "Hello World!"
   })
-
 })
 
 app.listen(3000, () => {
