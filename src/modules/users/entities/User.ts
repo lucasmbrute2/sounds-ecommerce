@@ -4,19 +4,29 @@ export class User {
   @PrimaryGeneratedColumn("uuid")
   id?: string;
 
-  @Column()
+  @Column({
+    type: 'varchar'
+  })
   username!: string;
 
-  @Column()
+  @Column({
+    type: 'varchar'
+  })
   password!: string;
 
-  @Column()
+  @Column({
+    type: 'varchar'
+  })
   first_name!: string;
 
-  @Column()
+  @Column({
+    type: 'varchar'
+  })
   last_name!: string;
 
-  @Column()
+  @Column({
+    type: 'varchar'
+  })
   phone!: string;
 
   @CreateDateColumn()
@@ -24,5 +34,4 @@ export class User {
 
   @CreateDateColumn()
   modified_at!: string;
-
 }
