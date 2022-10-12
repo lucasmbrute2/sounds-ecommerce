@@ -4,6 +4,7 @@ import { createConnection } from "./shared/infra/data-source";
 createConnection()
 
 const app = express();
+app.use(express.json());
 
 app.get("/", (req, res, next) => {
   res.json({
