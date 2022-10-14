@@ -1,4 +1,5 @@
 import "reflect-metadata";
+import "express-async-errors";
 import express, { NextFunction, Request, Response } from "express";
 import { createConnection } from "./shared/infra/data-source";
 import { AppError } from "./shared/errors/AppError";
