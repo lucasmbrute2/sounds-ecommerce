@@ -17,12 +17,12 @@ describe("Create a user", () => {
     await createUserUseCase.execute({
       first_name: 'test name',
       last_name: 'test lastname',
-      password: '12345',
+      password: 'Adkad!321321',
       phone: '123145',
-      username: 'lucas@gmail.com'
+      username: 'lucasmbrute615@gmail.com'
     })
 
-    const user = await usersRepository.findByEmail('lucas@gmail.com');
+    const user = await usersRepository.findByEmail('lucasmbrute615@gmail.com');
     expect(user).toHaveProperty('id');
   })
 
@@ -34,7 +34,7 @@ describe("Create a user", () => {
         last_name: 'test lastname',
         password: '12345',
         phone: '123145',
-        username: 'lucas@gmail.com'
+        username: ''
       }
 
       await createUserUseCase.execute(mockedUser)
@@ -42,5 +42,19 @@ describe("Create a user", () => {
     }
 
     expect(getUser()).rejects.toBeInstanceOf(AppError)
+  })
+
+  test("should not be able to create a user without all valid fields", () => {
+    expect(async () => {
+      const mockedUser = {
+        first_name: 'test name',
+        last_name: 'test lastname',
+        password: '',
+        phone: '123145',
+        username: ''
+      }
+
+      await createUserUseCase.execute(mockedUser)
+    }).rejects.toBeInstanceOf(AppError)
   })
 })
