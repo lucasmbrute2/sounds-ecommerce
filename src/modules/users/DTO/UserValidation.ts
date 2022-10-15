@@ -4,7 +4,7 @@ import { CreateUserDTO } from "./CreateUserDTO"
 
 let schema = object().shape({
   id: string().uuid(),
-  username: string().email("Should be a valid email"),
+  username: string().email("Should be a valid email").required(),
   password: string()
     .required()
     .min(8, "Password must contain at least 8 characters.")
