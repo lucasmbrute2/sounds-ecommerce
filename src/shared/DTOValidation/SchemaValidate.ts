@@ -10,7 +10,8 @@ export class Validate {
     this.payload = payload;
   }
 
-  async validate(): Promise<void | AssertsShape<any>> {
-    return await this.schema.validate(this.payload).catch(err => { err })
+  async validate(): Promise<Boolean> {
+    console.log("inside validate", this.payload)
+    return await this.schema.isValid(this.payload)
   }
 }
