@@ -15,7 +15,7 @@ export class InMemoryUsersRepository implements IUsersRepository {
     this.usersRepo.push(user)
   }
 
-  async findByEmail(username: string): Promise<User | undefined> {
+  async findByEmail(username: string): Promise<User | Falsy> {
     return this.usersRepo.find(user => user.username === username);
   }
 }

@@ -2,9 +2,14 @@ import { AppError } from "../../../shared/errors/AppError";
 import { IUsersRepository } from "../contracts/IUsersRepository";
 import { CreateUserDTO } from "../DTO/CreateUserDTO";
 import { UserValidation } from "../DTO/UserValidation";
+import { injectable, inject } from "tsyringe"
 
+@injectable()
 export class CreateUserUseCase {
-  constructor(private usersRepository: IUsersRepository) { }
+  constructor(
+    @inject("UsersRepository")
+    private usersRepository: IUsersRepository
+  ) { }
 
   async execute(data: CreateUserDTO) {
     const userIsValid = await new UserValidation(data).validate();
@@ -19,4 +24,4 @@ export class CreateUserUseCase {
 
     return data;
   }
-} 
+}
