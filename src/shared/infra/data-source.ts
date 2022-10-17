@@ -11,6 +11,7 @@ export const AppDataSource = new DataSource({
   password: configEnv.typeorm.dbPassword,
   database: configEnv.typeorm.dbName,
   logging: true,
+  synchronize: true,
   entities: [User],
   migrations
 })
