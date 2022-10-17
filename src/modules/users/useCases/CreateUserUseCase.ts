@@ -7,8 +7,7 @@ import { injectable, inject } from "tsyringe"
 @injectable()
 export class CreateUserUseCase {
   constructor(
-    @inject("UsersRepository")
-    private usersRepository: IUsersRepository
+    @inject("UsersRepository") private usersRepository: IUsersRepository
   ) { }
 
   async execute(data: CreateUserDTO) {
