@@ -11,7 +11,6 @@ export class Validate {
   }
 
   async validate(): Promise<Boolean> {
-    console.log("inside validate", this.payload)
     return await this.schema.isValid(this.payload)
   }
 }

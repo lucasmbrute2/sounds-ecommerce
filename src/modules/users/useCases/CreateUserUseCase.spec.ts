@@ -32,9 +32,9 @@ describe("Create a user", () => {
       const mockedUser = {
         first_name: 'test name',
         last_name: 'test lastname',
-        password: '12345',
+        password: 'Adkad!321321',
         phone: '123145',
-        username: ''
+        username: 'lucasmbrute615@gmail.com'
       }
 
       await createUserUseCase.execute(mockedUser)
