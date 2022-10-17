@@ -1,6 +1,6 @@
 import { expect, test, describe, beforeEach } from "vitest"
-import { AppError } from "../../../shared/errors/AppError";
-import { InMemoryUsersRepository } from "../in-memory/repositories/InMemoryUserRepository"
+import { AppError } from "../../../../shared/errors/AppError";
+import { InMemoryUsersRepository } from "../../in-memory/repositories/InMemoryUserRepository"
 import { CreateUserUseCase } from "./CreateUserUseCase"
 
 let usersRepository: InMemoryUsersRepository;

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
-import { CreateUserDTO } from "../DTO/CreateUserDTO";
+import { CreateUserDTO } from "../../DTO/CreateUserDTO";
 import { CreateUserUseCase } from "./CreateUserUseCase";
 
 export class CreateUserController {

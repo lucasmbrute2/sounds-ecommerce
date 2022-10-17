@@ -1,7 +1,7 @@
-import { AppError } from "../../../shared/errors/AppError";
-import { IUsersRepository } from "../contracts/IUsersRepository";
-import { CreateUserDTO } from "../DTO/CreateUserDTO";
-import { UserValidation } from "../DTO/UserValidation";
+import { AppError } from "../../../../shared/errors/AppError";
+import { IUsersRepository } from "../../contracts/IUsersRepository";
+import { CreateUserDTO } from "../../DTO/CreateUserDTO";
+import { UserValidation } from "../../DTO/UserValidation";
 import { injectable, inject } from "tsyringe"
 
 @injectable()
