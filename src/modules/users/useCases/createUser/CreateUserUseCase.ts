@@ -3,6 +3,7 @@ import { IUsersRepository } from "../../contracts/IUsersRepository";
 import { CreateUserDTO } from "../../DTO/CreateUserDTO";
 import { UserValidation } from "../../DTO/UserValidation";
 import { injectable, inject } from "tsyringe"
+import { hash } from "bcrypt"
 
 @injectable()
 export class CreateUserUseCase {
@@ -18,6 +19,9 @@ export class CreateUserUseCase {
     const user = await this.usersRepository.findByEmail(data.username)
 
     if (user) throw new AppError("User Already exists");
+
+    const hashPassword = await hash(data.password, 8);
+    data.password = hashPassword;
 
     await this.usersRepository.create(data);
 
