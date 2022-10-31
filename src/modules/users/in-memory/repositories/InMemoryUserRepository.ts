@@ -1,8 +1,9 @@
 import { IUsersRepository } from "../../contracts/IUsersRepository";
-import { CreateUserDTO } from "../../DTO/CreateUserDTO";
+import { CreateUserAddressDTO, CreateUserDTO } from "../../DTO/CreateUserDTO";
 import { User } from "../../entities/User";
 
 export class InMemoryUsersRepository implements IUsersRepository {
+
   usersRepo: User[] = [];
 
   async create(data: CreateUserDTO): Promise<void> {
@@ -17,5 +18,9 @@ export class InMemoryUsersRepository implements IUsersRepository {
 
   async findByEmail(username: string): Promise<User | Falsy> {
     return this.usersRepo.find(user => user.username === username);
+  }
+
+  createAddress(data: CreateUserAddressDTO): Promise<void> {
+    throw new Error("Method not implemented.");
   }
 }

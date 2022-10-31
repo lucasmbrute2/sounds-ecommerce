@@ -1,7 +1,7 @@
 import { Repository } from "typeorm";
 import { AppDataSource } from "../../../shared/infra/data-source";
 import { IUsersRepository } from "../contracts/IUsersRepository";
-import { CreateUserDTO } from "../DTO/CreateUserDTO";
+import { CreateUserAddressDTO, CreateUserDTO } from "../DTO/CreateUserDTO";
 import { User } from "../entities/User";
 
 export class UsersRepository implements IUsersRepository {
@@ -20,5 +20,9 @@ export class UsersRepository implements IUsersRepository {
     return await this.repository.findOneBy({
       username
     })
+  }
+  
+  async createAddress(data: CreateUserAddressDTO): Promise<void> {
+    throw new Error("Method not implemented.");
   }
 }
