@@ -5,7 +5,7 @@ import { migrations } from "./migrations";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
-  host: "localhost",
+  host: configEnv.typeorm.dbHost,
   port: 5432,
   username: configEnv.typeorm.dbUsername,
   password: configEnv.typeorm.dbPassword,
