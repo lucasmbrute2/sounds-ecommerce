@@ -3,7 +3,7 @@ import { IUsersRepository } from "../../contracts/IUsersRepository";
 import { CreateUserDTO } from "../../DTO/CreateUserDTO";
 import { UserValidation } from "../../DTO/UserValidation";
 import { injectable, inject } from "tsyringe"
-import { hash } from "bcrypt"
+import { hash } from "bcryptjs"
 
 @injectable()
 export class CreateUserUseCase {
