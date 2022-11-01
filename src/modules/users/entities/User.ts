@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { UserAddres } from "./UserAddress";
+import { UserAddress } from "./UserAddress";
 
 @Entity()
 export class User {
@@ -9,34 +9,35 @@ export class User {
   @Column({
     type: 'varchar'
   })
-  username!: string;
+  username: string;
 
   @Column({
     type: 'varchar'
   })
-  password!: string;
+  password: string;
 
   @Column({
     type: 'varchar'
   })
-  first_name!: string;
+  first_name: string;
 
   @Column({
     type: 'varchar'
   })
-  last_name!: string;
+  last_name: string;
 
   @Column({
     type: 'varchar'
   })
-  phone!: string;
+  phone: string;
 
   @CreateDateColumn()
-  created_at!: string;
+  created_at: string;
 
   @CreateDateColumn()
-  modified_at!: string;
+  modified_at: string;
 
-  @OneToMany(()=> UserAddres, (userAddress)=> userAddress.user)
-  adresses!: UserAddres[]
+  @OneToMany(()=> UserAddress, (userAddress)=> userAddress.user)
+  adresses: UserAddress[]
+
 }

@@ -7,43 +7,40 @@ export class UserAddress {
     id?: string;
    
     @ManyToOne(()=> User, (user)=> user.adresses) 
-    user!: User
+    user: User
 
     @Column({
         type: 'varchar'
     })
-    address_line1!: string
+    address_line1: string
     
     @Column({
         type: 'varchar'
     })
-    address_line2!: string;
-    
-    
-    @Column({
-        type: 'varchar'
-    })
-    city!: string;
-    
+    address_line2: string;
     
     @Column({
         type: 'varchar'
     })
-    postal_code!: string;
+    city: string;
 
+    @Column({
+        type: 'varchar'
+    })
+    postal_code: string;
+
+    @Column({
+        type: 'varchar'
+    })
+    country: string;
     
     @Column({
         type: 'varchar'
     })
-    country!: string;
+    phone: string;
     
     @Column({
         type: 'varchar'
     })
-    phone!: string;
-    
-    @Column({
-        type: 'varchar'
-    })
-    mobile!: string;
+    mobile: string;
 }
