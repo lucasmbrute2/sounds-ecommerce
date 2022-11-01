@@ -2,31 +2,48 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { User } from "./User";
 
 @Entity()
-export class UserAddres {
-    @PrimaryGeneratedColumn()
-    id!: string;
+export class UserAddress {
+    @PrimaryGeneratedColumn('uuid')
+    id?: string;
    
     @ManyToOne(()=> User, (user)=> user.adresses) 
     user!: User
 
-    @Column()
+    @Column({
+        type: 'varchar'
+    })
     address_line1!: string
     
-    @Column()
+    @Column({
+        type: 'varchar'
+    })
     address_line2!: string;
     
-    @Column()
+    
+    @Column({
+        type: 'varchar'
+    })
     city!: string;
     
-    @Column()
-    postal_code!: string;
     
-    @Column()
+    @Column({
+        type: 'varchar'
+    })
+    postal_code!: string;
+
+    
+    @Column({
+        type: 'varchar'
+    })
     country!: string;
     
-    @Column()
+    @Column({
+        type: 'varchar'
+    })
     phone!: string;
     
-    @Column()
+    @Column({
+        type: 'varchar'
+    })
     mobile!: string;
 }
