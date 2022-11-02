@@ -13,7 +13,7 @@
     "scripts": {
         "dev": "ts-node-dev --poll --respawn --transpile-only src/server.ts",
         "typeorm": "ts-node-dev  ./node_modules/typeorm/cli",
-        "migration:generate": "typeorm-ts-node-commonjs -d ./src/shared/infra/data-source.ts migration:generate ./src/shared/infra/migrations",
+        "migration:generate": "typeorm-ts-node-commonjs -d ./src/shared/infra/data-source.ts migration:generate ./src/shared/infra/migrations/default",
         "migration:run": "typeorm-ts-node-commonjs -d ./src/shared/infra/data-source.ts migration:run",
         "test": "vitest --config ./vite.config.ts",
         "build": "tsc"
