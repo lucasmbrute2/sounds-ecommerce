@@ -2,19 +2,17 @@ import { DataSource } from "typeorm"
 import { configEnv } from "../../configs/dotenv"
 import { User } from "../../modules/users/entities/User";
 import { UserAddress } from "../../modules/users/entities/UserAddress";
-import { migrations } from "./migrations";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
-  host: configEnv.typeorm.dbHost,
+  host: configEnv.node.env === 'localhost' ? 'localhost' : configEnv.typeorm.dbHost,
   port: 5432,
   username: configEnv.typeorm.dbUsername,
   password: configEnv.typeorm.dbPassword,
   database: configEnv.typeorm.dbName,
   logging: true,
-  synchronize: true,
-  entities: [User, UserAddress],
-  migrations
+  entities: [`**/entities/*{ts,js}`],
+  migrations: [`**/migrations/*{ts,js}`]
 })
 
 export async function createConnection(): Promise<void> {
