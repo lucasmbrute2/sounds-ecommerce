@@ -7,5 +7,8 @@ export const configEnv = {
     dbPassword: process.env.DB_PASSWORD,
     dbName: process.env.DB_NAME,
     dbHost: process.env.DB_HOST 
+  },
+  node: {
+    env: process.env.NODE_ENV
   }
 } 
