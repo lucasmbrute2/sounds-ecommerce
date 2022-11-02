@@ -10,6 +10,10 @@ export class UsersRepository implements IUsersRepository {
   constructor() {
     this.repository = AppDataSource.getRepository(User);
   }
+  
+  async findByID(id: string): Promise<User | Falsy> {
+    throw new Error("Method not implemented.");
+  }
 
   async create(data: CreateUserDTO): Promise<void> {
     const user = this.repository.create(data)
