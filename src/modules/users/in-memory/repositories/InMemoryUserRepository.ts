@@ -25,10 +25,4 @@ export class InMemoryUsersRepository implements IUsersRepository {
   async findByID(id: string): Promise<User | Falsy> {
     return this.usersRepo.find(user => user.id === id)
   }
-
-  async createAddress(data: CreateUserAddressDTO): Promise<void> {
-    const user = await this.findByID(data.user_id);
-    if (!user) throw new AppError("User not found")
-    user.adresses.push(data as UserAddress)
-  }
 }
