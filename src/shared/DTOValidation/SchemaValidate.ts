@@ -1,5 +1,5 @@
 import { ObjectSchema } from "yup"
-import { AssertsShape } from "yup/lib/object";
+import { AppError } from "../errors/AppError";
 
 export class Validate {
   private readonly schema;
@@ -10,7 +10,9 @@ export class Validate {
     this.payload = payload;
   }
 
-  async validate(): Promise<Boolean> {
-    return await this.schema.isValid(this.payload)
+  async validate() {
+    await this.schema.validate(this.payload, { abortEarly: false }).catch(({ errors })=> {
+      throw new AppError(errors.join().replaceAll(",", ", "));
+    })
   }
 }

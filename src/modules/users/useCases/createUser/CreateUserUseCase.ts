@@ -12,9 +12,7 @@ export class CreateUserUseCase {
   ) { }
 
   async execute(data: CreateUserDTO) {
-    const userIsValid = await new UserValidation(data).validate();
-
-    if (!userIsValid) throw new AppError("Invalid fields");
+    await new UserValidation(data).validate();
 
     const user = await this.usersRepository.findByEmail(data.username)
 
