@@ -20,7 +20,9 @@ export class CreateUserAddressUseCase {
         const user = await this.usersRepository.findByID(data.user_id)
         if (!user) throw new AppError("User not found, please try again!")
 
-        //TO VALIDATE IF ADDRESS ALREADY EXISTS
+        const userAddressAlreadyExists = await this.userAddressRepository.findByZIP(data.postal_code);
+        if (userAddressAlreadyExists) throw new AppError("Address already registered.")
+        
         return await this.userAddressRepository.createAddress(data, user)
     }
 }
