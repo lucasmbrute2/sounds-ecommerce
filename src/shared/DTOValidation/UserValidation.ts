@@ -1,6 +1,6 @@
 import { string, object, date } from "yup"
-import { Validate } from "../../../shared/DTOValidation/SchemaValidate"
-import { CreateUserDTO } from "./CreateUserDTO"
+import { Validate } from "./SchemaValidate"
+import { CreateUserDTO } from "../../modules/users/DTO/CreateUserDTO"
 
 let schema = object().shape({
   id: string().uuid(),

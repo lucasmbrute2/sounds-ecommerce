@@ -1,7 +1,7 @@
 import { AppError } from "../../../../shared/errors/AppError";
 import { IUsersRepository } from "../../contracts/IUsersRepository";
 import { CreateUserDTO } from "../../DTO/CreateUserDTO";
-import { UserValidation } from "../../DTO/UserValidation";
+import { UserValidation } from "../../../../shared/DTOValidation/UserValidation";
 import { injectable, inject } from "tsyringe"
 import { hash } from "bcryptjs"
 
