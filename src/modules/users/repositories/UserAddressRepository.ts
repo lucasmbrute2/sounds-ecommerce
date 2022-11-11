@@ -12,8 +12,14 @@ export class UserAddressRepository implements IUserAddressRespository {
         this.repository = AppDataSource.getRepository(UserAddress)
     }
     
+    async findByZIP(postalCode: string): Promise<Falsy | UserAddress> {
+        return this.repository.findOneBy({ 
+            postal_code: postalCode
+        })
+    }
+    
     async findByID(id: string): Promise<UserAddress | Falsy> {
-        return this.repository.findOneBy({id})
+        return this.repository.findOneBy({ id })
     }
 
     async createAddress(data: CreateUserAddressDTO, user:User): Promise<UserAddress> {
@@ -21,8 +27,7 @@ export class UserAddressRepository implements IUserAddressRespository {
             ...data,
             user
         })
-        
+
         return await this.repository.save(userAddress);
     }
-    
 }

@@ -1,8 +1,7 @@
-import { AppError } from "../../../../shared/errors/AppError";
 import { IUsersRepository } from "../../contracts/IUsersRepository";
-import { CreateUserAddressDTO, CreateUserDTO } from "../../DTO/CreateUserDTO";
+import { CreateUserDTO } from "../../DTO/CreateUserDTO";
 import { User } from "../../entities/User";
-import { UserAddress } from "../../entities/UserAddress";
+import { v4 as uuid } from "uuid"
 
 export class InMemoryUsersRepository implements IUsersRepository {
 
@@ -10,9 +9,10 @@ export class InMemoryUsersRepository implements IUsersRepository {
 
   async create(data: CreateUserDTO): Promise<void> {
     const user = new User()
+    user.id = uuid();
 
     Object.assign(user, {
-      ...data
+      ...data,
     })
 
     this.usersRepo.push(user)

@@ -23,4 +23,8 @@ export class InMemoryUserAddressRepository implements IUserAddressRespository {
         return this.repository.find(address => address.user === user) as UserAddress
     }
 
+    async findByZIP(postalCode: string): Promise<UserAddress | Falsy> {
+        return this.repository.find(userAddress => userAddress.postal_code === postalCode)
+    }
+
 }
