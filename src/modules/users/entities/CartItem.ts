@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Product } from "./Product";
 import { ShoppingSession } from "./ShoppingSession";
 
 @Entity()
@@ -22,4 +23,10 @@ export class CartItem {
   
     @CreateDateColumn()
     modified_at: Date;
+
+    @OneToOne(()=> Product)
+    @JoinColumn({
+        name: 'product_id'
+    })
+    product: Product
 }
