@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { CartItem } from "./CartItem";
 import { User } from "./User";
 
 @Entity()
@@ -22,4 +23,7 @@ export class ShoppingSession {
   
     @CreateDateColumn()
     modified_at: Date;
+
+    @OneToMany(()=> CartItem, (cartItem)=> cartItem.session) 
+    cartItems: CartItem[]
 }
