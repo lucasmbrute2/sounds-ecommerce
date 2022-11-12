@@ -1,5 +1,6 @@
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { UserAddress } from "./UserAddress";
+import { UserPayment } from "./UserPayment";
 
 @Entity()
 export class User {
@@ -37,7 +38,10 @@ export class User {
   @CreateDateColumn()
   modified_at: string;
 
-  @OneToMany(()=> UserAddress, (userAddress)=> userAddress.user)
+  @OneToMany(()=> UserAddress, (userAddress) => userAddress.user)
   adresses: UserAddress[]
+
+  @OneToMany(()=> UserPayment, (userPayment) => userPayment.user) 
+  payments: UserPayment[]
 
 }

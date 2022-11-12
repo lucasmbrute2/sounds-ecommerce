@@ -2,7 +2,8 @@ import { DataSource } from "typeorm"
 import { configEnv } from "../../configs/dotenv"
 import { User } from "../../modules/users/entities/User";
 import { UserAddress } from "../../modules/users/entities/UserAddress";
-import { default1667434534036 } from "./migrations/1667434534036-default";
+import { UserPayment } from "../../modules/users/entities/UserPayment";
+import { default1668235314977 } from "./migrations/1668235314977-default";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
@@ -12,8 +13,8 @@ export const AppDataSource = new DataSource({
   password: configEnv.typeorm.dbPassword,
   database: configEnv.typeorm.dbName,
   logging: true,
-  entities: [User, UserAddress],
-  migrations: [default1667434534036]
+  entities: [User, UserAddress, UserPayment],
+  migrations: [default1668235314977]
 })
 
 export async function createConnection(): Promise<void> {

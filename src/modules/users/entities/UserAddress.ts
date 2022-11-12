@@ -7,7 +7,7 @@ export class UserAddress {
     id?: string;
    
     @ManyToOne(()=> User, (user)=> user.adresses) 
-    @JoinColumn({name: 'user_id'})
+    @JoinColumn({ name: 'user_id' })
     user: User
 
     @Column({
