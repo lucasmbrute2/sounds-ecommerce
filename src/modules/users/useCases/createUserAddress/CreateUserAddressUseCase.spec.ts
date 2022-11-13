@@ -36,7 +36,7 @@ describe("Create an user address", ()=> {
             country: 'country test',
             mobile: '313013010',
             phone: '31313131',
-            postal_code: '3131-313',
+            postal_code: '31314-313',
             user_id: user.id as string
         })
         expect(userAddress).toHaveProperty("id")
