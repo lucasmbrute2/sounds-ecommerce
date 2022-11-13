@@ -1,11 +1,15 @@
 import { DataSource } from "typeorm"
 import { configEnv } from "../../configs/dotenv"
+import { CartItem } from "../../modules/users/entities/CartItem";
+import { Product } from "../../modules/users/entities/Product";
+import { ProductCategory } from "../../modules/users/entities/ProductCategory";
 import { ShoppingSession } from "../../modules/users/entities/ShoppingSession";
 import { User } from "../../modules/users/entities/User";
 import { UserAddress } from "../../modules/users/entities/UserAddress";
 import { UserPayment } from "../../modules/users/entities/UserPayment";
 import { default1668235314977 } from "./migrations/1668235314977-default";
 import { default1668279260283 } from "./migrations/1668279260283-default";
+import { default1668280702915 } from "./migrations/1668280702915-default";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
@@ -15,8 +19,8 @@ export const AppDataSource = new DataSource({
   password: configEnv.typeorm.dbPassword,
   database: configEnv.typeorm.dbName,
   logging: true,
-  entities: [User, UserAddress, UserPayment, ShoppingSession],
-  migrations: [default1668235314977, default1668279260283]
+  entities: [User, UserAddress, UserPayment, ShoppingSession, CartItem, Product, ProductCategory],
+  migrations: [default1668235314977, default1668279260283, default1668280702915]
 })
 
 export async function createConnection(): Promise<void> {

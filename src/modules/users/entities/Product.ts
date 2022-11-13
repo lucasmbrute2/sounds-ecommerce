@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { ProductCategory } from "./ProductCategory";
 
 @Entity()
 export class Product {
@@ -35,4 +36,10 @@ export class Product {
         nullable: true
     })
     deleted_at: Date
+
+    @ManyToOne(()=> ProductCategory, (productCategory) => productCategory.product)
+    @JoinColumn({
+        name: 'category_id'
+    })
+    category: ProductCategory
 } 
