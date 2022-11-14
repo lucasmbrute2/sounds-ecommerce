@@ -1,6 +1,6 @@
 import { IUsersRepository } from "../../contracts/IUsersRepository";
 import { CreateUserDTO } from "../../DTO/CreateUserDTO";
-import { User } from "../../entities/User";
+import { User } from "../../../../entities/User";
 import { v4 as uuid } from "uuid"
 
 export class InMemoryUsersRepository implements IUsersRepository {

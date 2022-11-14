@@ -2,8 +2,8 @@ import { Repository } from "typeorm";
 import { AppDataSource } from "../../../shared/infra/data-source";
 import { IUserAddressRespository } from "../contracts/IUserAddressRespository";
 import { CreateUserAddressDTO } from "../DTO/CreateUserDTO";
-import { User } from "../entities/User";
-import { UserAddress } from "../entities/UserAddress";
+import { User } from "../../../entities/User";
+import { UserAddress } from "../../../entities/UserAddress";
 
 export class UserAddressRepository implements IUserAddressRespository {
     private repository: Repository<UserAddress>

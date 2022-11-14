@@ -1,21 +1,22 @@
 import { DataSource } from "typeorm"
 import { configEnv } from "../../configs/dotenv"
-import { CartItem } from "../../modules/users/entities/CartItem";
-import { Discount } from "../../modules/users/entities/Discount";
-import { OrderDetails } from "../../modules/users/entities/OrderDetails";
-import { OrderItems } from "../../modules/users/entities/OrderItems";
-import { PaymentDetails } from "../../modules/users/entities/PaymentDetailts";
-import { Product } from "../../modules/users/entities/Product";
-import { ProductCategory } from "../../modules/users/entities/ProductCategory";
-import { ProductInventory } from "../../modules/users/entities/ProductInventory";
-import { ShoppingSession } from "../../modules/users/entities/ShoppingSession";
-import { User } from "../../modules/users/entities/User";
-import { UserAddress } from "../../modules/users/entities/UserAddress";
-import { UserPayment } from "../../modules/users/entities/UserPayment";
+import { CartItem } from "../../entities/CartItem";
+import { Discount } from "../../entities/Discount";
+import { OrderDetails } from "../../entities/OrderDetails";
+import { OrderItems } from "../../entities/OrderItems";
+import { PaymentDetails } from "../../entities/PaymentDetailts";
+import { Product } from "../../entities/Product";
+import { ProductCategory } from "../../entities/ProductCategory";
+import { ProductInventory } from "../../entities/ProductInventory";
+import { ShoppingSession } from "../../entities/ShoppingSession";
+import { User } from "../../entities/User";
+import { UserAddress } from "../../entities/UserAddress";
+import { UserPayment } from "../../entities/UserPayment";
 import { default1668235314977 } from "./migrations/1668235314977-default";
 import { default1668279260283 } from "./migrations/1668279260283-default";
 import { default1668280702915 } from "./migrations/1668280702915-default";
 import { default1668455431307 } from "./migrations/1668455431307-default";
+import { default1668457715670 } from "./migrations/1668457715670-default";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
@@ -40,7 +41,7 @@ export const AppDataSource = new DataSource({
     OrderItems,
     PaymentDetails
   ],
-  migrations: [default1668235314977, default1668279260283, default1668280702915, default1668455431307]
+  migrations: [default1668235314977, default1668279260283, default1668280702915, default1668455431307, default1668457715670]
 })
 
 export async function createConnection(): Promise<void> {
