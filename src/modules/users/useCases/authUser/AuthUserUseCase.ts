@@ -6,7 +6,7 @@ import { authUserDTO } from "../../DTO/CreateUserDTO";
 @injectable()
 export class AuthUserUseCase {
     constructor(
-        private usersRepoisitory: IUsersRepository
+        private usersRepository: IUsersRepository
     ){}
     
     async execute(data: authUserDTO){
