@@ -2,6 +2,7 @@ import { DataSource } from "typeorm"
 import { configEnv } from "../../configs/dotenv"
 import { CartItem } from "../../modules/users/entities/CartItem";
 import { Discount } from "../../modules/users/entities/Discount";
+import { OrderDetails } from "../../modules/users/entities/OrderDetails";
 import { Product } from "../../modules/users/entities/Product";
 import { ProductCategory } from "../../modules/users/entities/ProductCategory";
 import { ProductInventory } from "../../modules/users/entities/ProductInventory";
@@ -22,7 +23,7 @@ export const AppDataSource = new DataSource({
   password: configEnv.typeorm.dbPassword,
   database: configEnv.typeorm.dbName,
   logging: true,
-  entities: [User, UserAddress, UserPayment, ShoppingSession, CartItem, Product, ProductCategory, ProductInventory, Discount],
+  entities: [User, UserAddress, UserPayment, ShoppingSession, CartItem, Product, ProductCategory, ProductInventory, Discount, OrderDetails],
   migrations: [default1668235314977, default1668279260283, default1668280702915, default1668455431307]
 })
 
