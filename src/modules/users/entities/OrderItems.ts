@@ -1,5 +1,6 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { OrderDetails } from "./OrderDetails";
+import { Product } from "./Product";
 
 @Entity()
 export class OrderItems {
@@ -22,4 +23,10 @@ export class OrderItems {
         name: 'order_id'
     })
     order: OrderDetails
+
+    @OneToOne(()=> Product)
+    @JoinColumn({
+        name: 'product_id'
+    })
+    product: Product
 }
