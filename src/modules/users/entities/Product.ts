@@ -1,5 +1,6 @@
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { ProductCategory } from "./ProductCategory";
+import { ProductInventory } from "./ProductInventory";
 
 @Entity()
 export class Product {
@@ -42,4 +43,10 @@ export class Product {
         name: 'category_id'
     })
     category: ProductCategory
+
+    @OneToOne(()=> ProductInventory)
+    @JoinColumn({
+        name: 'inventory_id'
+    })
+    invenotory: ProductInventory
 } 

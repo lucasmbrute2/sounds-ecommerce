@@ -3,6 +3,7 @@ import { configEnv } from "../../configs/dotenv"
 import { CartItem } from "../../modules/users/entities/CartItem";
 import { Product } from "../../modules/users/entities/Product";
 import { ProductCategory } from "../../modules/users/entities/ProductCategory";
+import { ProductInventory } from "../../modules/users/entities/ProductInventory";
 import { ShoppingSession } from "../../modules/users/entities/ShoppingSession";
 import { User } from "../../modules/users/entities/User";
 import { UserAddress } from "../../modules/users/entities/UserAddress";
@@ -19,7 +20,7 @@ export const AppDataSource = new DataSource({
   password: configEnv.typeorm.dbPassword,
   database: configEnv.typeorm.dbName,
   logging: true,
-  entities: [User, UserAddress, UserPayment, ShoppingSession, CartItem, Product, ProductCategory],
+  entities: [User, UserAddress, UserPayment, ShoppingSession, CartItem, Product, ProductCategory, ProductInventory],
   migrations: [default1668235314977, default1668279260283, default1668280702915]
 })
 
