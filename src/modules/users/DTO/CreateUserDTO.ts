@@ -16,3 +16,9 @@ export interface CreateUserAddressDTO {
   phone: string;
   mobile: string;
 }
+
+export interface authUserDTO {
+  username: string;
+  password: string
+  confirmPassword: string;
+}
