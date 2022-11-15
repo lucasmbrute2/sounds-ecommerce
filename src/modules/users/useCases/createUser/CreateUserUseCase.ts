@@ -12,8 +12,7 @@ export class CreateUserUseCase {
   ) { }
 
   async execute(data: CreateUserDTO) {
-    await new UserValidation(data).validate();
-
+    await new UserValidation(data).validate();    
     const user = await this.usersRepository.findByEmail(data.username)
 
     if (user) throw new AppError("User Already exists");

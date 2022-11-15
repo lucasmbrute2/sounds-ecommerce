@@ -11,7 +11,7 @@ let schema = object().shape({
     .max(12, "Password should not be greater than 12 characters.")
     .matches(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
+      "Password must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
     ),
   first_name: string().required(),
   last_name: string().required(),

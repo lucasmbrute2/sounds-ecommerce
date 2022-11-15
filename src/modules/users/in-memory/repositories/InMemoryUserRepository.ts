@@ -14,7 +14,7 @@ export class InMemoryUsersRepository implements IUsersRepository {
     Object.assign(user, {
       ...data,
     })
-
+      
     this.usersRepo.push(user)
   }
 
