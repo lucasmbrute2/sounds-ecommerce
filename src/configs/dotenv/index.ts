@@ -10,5 +10,8 @@ export const configEnv = {
   },
   node: {
     env: process.env.NODE_ENV
+  },
+  jwt: {
+    secret: process.env.JWT_SECRET
   }
 } 
