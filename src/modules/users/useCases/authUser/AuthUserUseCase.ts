@@ -4,6 +4,16 @@ import { User } from "../../../../entities/User";
 import { AppError } from "../../../../shared/errors/AppError";
 import { IUsersRepository } from "../../contracts/IUsersRepository";
 import { authUserDTO } from "../../DTO/CreateUserDTO";
+import { sign } from "jsonwebtoken"
+import { configEnv } from "../../../../configs/dotenv";
+
+interface IResponse {
+    user: {
+        name: string;
+        username: string;
+    },
+    token: string
+}
 
 @injectable()
 export class AuthUserUseCase {
@@ -12,18 +22,28 @@ export class AuthUserUseCase {
         private usersRepository: IUsersRepository
     ){}
     
-    async execute(data: authUserDTO){
+    async execute(data: authUserDTO): Promise<IResponse> {
         const { password, confirmPassword, username } = data;
         if (password !== confirmPassword) throw new AppError("Password don't match.")
 
         const user = await this.usersRepository.findByEmail(username) as User
-        if (!user) throw new Error("User or password incorrect.");
+        if (!user) throw new Error("Email or password incorrect.");
         
         const passwordIsCorrect = await compare(password, user.password)
-        
         if (!passwordIsCorrect) throw new AppError('Email or passsword incorrect, please try again.')
         
-        //TODO return a JWT TOKEN
-        return 'jwt'
+        const token = sign({}, configEnv?.jwt.secret as string, {
+            subject: JSON.stringify(user?.id)
+        })
+
+        const tokenReturn: IResponse = {
+            user: {
+                name: user.first_name,
+                username: user.username
+            },
+            token
+        }
+
+        return tokenReturn
     }
 }
