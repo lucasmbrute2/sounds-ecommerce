@@ -7,7 +7,7 @@ import { authUserDTO } from "../../DTO/CreateUserDTO";
 import { sign } from "jsonwebtoken"
 import { configEnv } from "../../../../configs/dotenv";
 
-interface IResponse {
+export interface IResponse {
     user: {
         name: string;
         username: string;
@@ -27,7 +27,7 @@ export class AuthUserUseCase {
         if (password !== confirmPassword) throw new AppError("Password don't match.")
 
         const user = await this.usersRepository.findByEmail(username) as User
-        if (!user) throw new Error("Email or password incorrect.");
+        if (!user) throw new AppError("Email or password incorrect.");
         
         const passwordIsCorrect = await compare(password, user.password)
         if (!passwordIsCorrect) throw new AppError('Email or passsword incorrect, please try again.')
