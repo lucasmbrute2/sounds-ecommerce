@@ -8,6 +8,7 @@ import { PaymentDetails } from "../../entities/PaymentDetailts";
 import { Product } from "../../entities/Product";
 import { ProductCategory } from "../../entities/ProductCategory";
 import { ProductInventory } from "../../entities/ProductInventory";
+import { Profile } from "../../entities/Profile";
 import { ShoppingSession } from "../../entities/ShoppingSession";
 import { User } from "../../entities/User";
 import { UserAddress } from "../../entities/UserAddress";
@@ -17,6 +18,7 @@ import { default1668279260283 } from "./migrations/1668279260283-default";
 import { default1668280702915 } from "./migrations/1668280702915-default";
 import { default1668455431307 } from "./migrations/1668455431307-default";
 import { default1668457715670 } from "./migrations/1668457715670-default";
+import { default1668651816906 } from "./migrations/1668651816906-default";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
@@ -39,9 +41,10 @@ export const AppDataSource = new DataSource({
     OrderDetails, 
     OrderDetails, 
     OrderItems,
-    PaymentDetails
+    PaymentDetails,
+    Profile
   ],
-  migrations: [default1668235314977, default1668279260283, default1668280702915, default1668455431307, default1668457715670]
+  migrations: [default1668235314977, default1668279260283, default1668280702915, default1668455431307, default1668457715670, default1668651816906]
 })
 
 export async function createConnection(): Promise<void> {
