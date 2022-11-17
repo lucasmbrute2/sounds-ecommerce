@@ -13,6 +13,7 @@ export class InMemoryUserAddressRepository implements IUserAddressRespository {
     
     async createAddress(data: CreateUserAddressDTO, user:User): Promise<UserAddress> {
         const userAddress = new UserAddress()
+        user.adresses.push(userAddress)
         
         Object.assign(userAddress, {
             ...data,

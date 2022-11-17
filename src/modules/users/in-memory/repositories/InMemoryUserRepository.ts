@@ -13,6 +13,7 @@ export class InMemoryUsersRepository implements IUsersRepository {
 
     Object.assign(user, {
       ...data,
+      adresses: []
     })
       
     this.usersRepo.push(user)

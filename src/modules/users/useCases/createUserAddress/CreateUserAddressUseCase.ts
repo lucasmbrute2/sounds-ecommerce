@@ -21,7 +21,7 @@ export class CreateUserAddressUseCase {
         const user = await this.usersRepository.findByID(data.user_id) as User
         if (!user) throw new AppError("User not found, please try again!")
 
-        user.adresses.forEach(address => {
+        user.adresses?.forEach(address => {
             if (address.postal_code === data.postal_code) {
                 throw new AppError("Address already registered.")
             }
