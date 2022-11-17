@@ -42,4 +42,24 @@ describe("Auth a user", ()=> {
             })
         }).rejects.toBeInstanceOf(AppError)
     })
+
+    test("should be able to auth a user receiving a JWT token", async ()=> {
+
+        await createUserUseCase.execute({
+            first_name: 'Lucas',
+            last_name: 'Dantas',
+            password: 'Adkad!321',
+            phone: '31313131',
+            username: 'emailtest@gmail.com'
+        })
+
+        const userAuthResponse = await authUserUseCase.execute({
+            password: 'Adkad!321',
+            confirmPassword: 'Adkad!321',
+            username: 'emailtest@gmail.com'
+        })
+
+        expect(userAuthResponse).toHaveProperty('token')
+
+    })
 })
