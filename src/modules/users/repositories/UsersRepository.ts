@@ -17,7 +17,15 @@ export class UsersRepository implements IUsersRepository {
   }
   
   async findByID(id: string): Promise<User | Falsy> {
-    return await this.repository.findOneBy({ id })
+    const [user] =  await this.repository.find({
+      where: {
+        id
+      },
+      relations: {
+        adresses: true
+      }
+    })
+    return user;
   }
 
   async findByEmail(username: string): Promise<User | Falsy> {
