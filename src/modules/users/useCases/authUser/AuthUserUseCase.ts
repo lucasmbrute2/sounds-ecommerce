@@ -33,7 +33,8 @@ export class AuthUserUseCase {
         if (!passwordIsCorrect) throw new AppError('Email or passsword incorrect, please try again.')
         
         const token = sign({}, configEnv?.jwt.secret as string, {
-            subject: JSON.stringify(user?.id)
+            subject: JSON.stringify(user?.id),
+            expiresIn: '2 days'
         })
 
         const tokenReturn: IResponse = {
