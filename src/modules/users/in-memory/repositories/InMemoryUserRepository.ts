@@ -4,8 +4,12 @@ import { User } from "../../../../entities/User";
 import { v4 as uuid } from "uuid"
 
 export class InMemoryUsersRepository implements IUsersRepository {
-
+  
   private usersRepo: User[] = [];
+  
+  async findAll(): Promise<User[]> {
+    return this.usersRepo;
+  }
 
   async create(data: CreateUserDTO): Promise<void> {
     const user = new User()

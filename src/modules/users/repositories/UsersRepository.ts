@@ -10,6 +10,15 @@ export class UsersRepository implements IUsersRepository {
   constructor() {
     this.repository = AppDataSource.getRepository(User);
   }
+
+  async findAll(): Promise<User[]> {
+    return this.repository.find({
+      relations: {
+        adresses: true,
+        payments: true
+      }
+    })
+  }
   
   async create(data: CreateUserDTO): Promise<void> {
     const user = this.repository.create(data)

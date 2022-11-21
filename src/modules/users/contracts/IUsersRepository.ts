@@ -5,4 +5,5 @@ export interface IUsersRepository {
   create(data: CreateUserDTO): Promise<void>
   findByEmail(username: string): Promise<User | Falsy>
   findByID(id: string):  Promise<User | Falsy>
+  findAll(): Promise<User[]>
 }
