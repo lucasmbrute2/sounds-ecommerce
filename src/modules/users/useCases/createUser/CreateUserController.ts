@@ -8,7 +8,7 @@ export class CreateUserController {
     const { first_name, last_name, password, phone, username }: CreateUserDTO = req.body;
     const createUserUseCase = container.resolve(CreateUserUseCase)
 
-    await createUserUseCase.execute({
+    const user = await createUserUseCase.execute({
       first_name,
       last_name,
       password,
@@ -16,6 +16,6 @@ export class CreateUserController {
       username
     })
 
-    return res.status(201).send();
+    return res.status(201).json(user);
   }
 }

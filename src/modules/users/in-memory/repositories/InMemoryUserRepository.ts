@@ -4,14 +4,13 @@ import { User } from "../../../../entities/User";
 import { v4 as uuid } from "uuid"
 
 export class InMemoryUsersRepository implements IUsersRepository {
-  
   private usersRepo: User[] = [];
   
   async findAll(): Promise<User[]> {
     return this.usersRepo;
   }
 
-  async create(data: CreateUserDTO): Promise<void> {
+  async create(data: CreateUserDTO): Promise<User> {
     const user = new User()
     user.id = uuid();
 
@@ -21,6 +20,7 @@ export class InMemoryUsersRepository implements IUsersRepository {
     })
       
     this.usersRepo.push(user)
+    return user;
   }
 
   async findByEmail(username: string): Promise<User | Falsy> {

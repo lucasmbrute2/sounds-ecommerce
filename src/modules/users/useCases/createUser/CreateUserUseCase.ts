@@ -20,8 +20,6 @@ export class CreateUserUseCase {
     const hashPassword = await hash(data.password, 8);
     data.password = hashPassword;
 
-    await this.usersRepository.create(data);
-
-    return data;
+    return await this.usersRepository.create(data);
   }
 }

@@ -20,9 +20,9 @@ export class UsersRepository implements IUsersRepository {
     })
   }
   
-  async create(data: CreateUserDTO): Promise<void> {
+  async create(data: CreateUserDTO): Promise<User> {
     const user = this.repository.create(data)
-    await this.repository.save(user)
+    return await this.repository.save(user)
   }
   
   async findByID(id: string): Promise<User | Falsy> {
