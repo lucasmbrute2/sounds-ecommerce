@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { UserAddress } from "./UserAddress";
 import { UserPayment } from "./UserPayment";
 
@@ -35,7 +35,7 @@ export class User {
   @CreateDateColumn()
   created_at: string;
 
-  @CreateDateColumn()
+  @UpdateDateColumn()
   modified_at: string;
 
   @OneToMany(()=> UserAddress, (userAddress) => userAddress.user)
@@ -43,5 +43,8 @@ export class User {
 
   @OneToMany(()=> UserPayment, (userPayment) => userPayment.user) 
   payments: UserPayment[]
+
+  @DeleteDateColumn()
+  deletedAt?: Date;
 
 }

@@ -30,4 +30,8 @@ export class InMemoryUsersRepository implements IUsersRepository {
   async findByID(id: string): Promise<User | Falsy> {
     return this.usersRepo.find(user => user.id === id)
   }
+
+  async delete(id: string): Promise<void> {
+    this.usersRepo.splice(this.usersRepo.findIndex(el => el.id === id))
+  }
 }

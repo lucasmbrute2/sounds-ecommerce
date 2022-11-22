@@ -6,4 +6,5 @@ export interface IUsersRepository {
   findByEmail(username: string): Promise<User | Falsy>
   findByID(id: string):  Promise<User | Falsy>
   findAll(): Promise<User[]>
+  delete(id:string): Promise<void>
 }

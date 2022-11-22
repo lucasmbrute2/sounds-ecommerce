@@ -19,6 +19,7 @@ import { default1668280702915 } from "./migrations/1668280702915-default";
 import { default1668455431307 } from "./migrations/1668455431307-default";
 import { default1668457715670 } from "./migrations/1668457715670-default";
 import { default1668651816906 } from "./migrations/1668651816906-default";
+import { default1669141602024 } from "./migrations/1669141602024-default";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
@@ -44,7 +45,15 @@ export const AppDataSource = new DataSource({
     PaymentDetails,
     Profile
   ],
-  migrations: [default1668235314977, default1668279260283, default1668280702915, default1668455431307, default1668457715670, default1668651816906]
+  migrations: [
+    default1668235314977,
+    default1668279260283, 
+    default1668280702915, 
+    default1668455431307, 
+    default1668457715670, 
+    default1668651816906,
+    default1669141602024
+  ]
 })
 
 export async function createConnection(): Promise<void> {
