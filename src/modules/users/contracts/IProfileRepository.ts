@@ -7,5 +7,5 @@ export interface createProfileDTO {
 }
 
 export interface IProfileRepository {
-    create(data: createProfileDTO, user: User): Promise<Profile> 
+    create(photo: string, user: User): Promise<Profile> 
 }
