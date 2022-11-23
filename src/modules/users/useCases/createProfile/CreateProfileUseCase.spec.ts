@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, test } from "vitest";
+import { AppError } from "../../../../shared/errors/AppError";
 import { InMemoryProfileRepository } from "../../in-memory/repositories/InMemoryProfileRepository";
 import { InMemoryUsersRepository } from "../../in-memory/repositories/InMemoryUserRepository";
 import { CreateUserUseCase } from "../createUser/CreateUserUseCase";
@@ -29,9 +30,16 @@ describe("Profile entity", ()=> {
         const profile = await createProfileUseCase.execute({
             photo: "users/photo/belafoto.png",
             user_id: user?.id as string
-        })
-        console.log(profile);
-    
+        })    
         expect(profile).toHaveProperty('id')
+    })
+
+    test("should not be able to create a profile for a not valid user", ()=> {
+        expect(async ()=> {
+            await createProfileUseCase.execute({
+                photo: "users/photo/belafoto.png",
+                user_id: 'test'
+            })    
+        }).rejects.toBeInstanceOf(AppError)
     })
 })
