@@ -6,12 +6,15 @@ export class CreateProfileController {
     async handle(req: Request, res: Response): Promise<Response> {
         //@ts-ignore
         const { id } = req.user
+        const photo = req.file?.filename as string
         const createProfileUseCase = container.resolve(CreateProfileUseCase)
-        //TO DO USE STORAGE ABSTRACTIONJ
+
         await createProfileUseCase.execute({
-            photo,
-            id
+            photo, 
+            user_id: id
         })
+
+        return res.send();
 
     }
 }
