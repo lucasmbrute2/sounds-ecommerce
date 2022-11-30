@@ -18,7 +18,7 @@ export async function ensureAuthentication(req: Request, res: Response, next: Ne
 
         //@ts-ignore
         req.user = {
-            id: user_id
+            id: user_id.replaceAll('"', "")
         }
 
         return next();
