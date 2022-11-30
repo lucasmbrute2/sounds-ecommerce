@@ -7,14 +7,15 @@ export class CreateProfileController {
         //@ts-ignore
         const { id } = req.user
         const photo = req.file?.filename as string
-        const createProfileUseCase = container.resolve(CreateProfileUseCase)
 
-        await createProfileUseCase.execute({
+        const createProfileUseCase = container.resolve(CreateProfileUseCase)
+        const profile = await createProfileUseCase.execute({
             photo, 
             user_id: id
         })
 
-        return res.send();
-
+        return res.status(201).json({
+            profile
+        });
     }
 }
