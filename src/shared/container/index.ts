@@ -5,6 +5,8 @@ import { IUsersRepository } from "../../modules/users/contracts/IUsersRepository
 import { ProfileRepository } from "../../modules/users/repositories/ProfileRepository";
 import { UserAddressRepository } from "../../modules/users/repositories/UserAddressRepository";
 import { UsersRepository } from "../../modules/users/repositories/UsersRepository"
+import { LocalStorageProvider } from "./providers/StorageProvider/implementations/LocalStorageProvider";
+import { IStorageProvider } from "./providers/StorageProvider/IStorageProvider";
 
 
 container.registerSingleton<IUsersRepository>(
@@ -20,4 +22,9 @@ container.registerSingleton<IUserAddressRespository>(
 container.registerSingleton<IProfileRepository>(
   'ProfileRepository',
   ProfileRepository
+)
+
+container.registerSingleton<IStorageProvider>(
+  'StorageProvider',
+  LocalStorageProvider
 )
