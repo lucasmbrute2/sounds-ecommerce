@@ -4,6 +4,10 @@ import { UserPayment } from "./UserPayment";
 
 @Entity()
 export class User {
+  constructor(){
+    this.created_at = new Date();
+  }
+
   @PrimaryGeneratedColumn("uuid")
   id?: string;
 
@@ -33,10 +37,10 @@ export class User {
   phone: string;
 
   @CreateDateColumn()
-  created_at: string;
+  created_at: Date;
 
   @UpdateDateColumn()
-  modified_at: string;
+  modified_at: Date;
 
   @OneToMany(()=> UserAddress, (userAddress) => userAddress.user)
   adresses: UserAddress[]
@@ -46,5 +50,4 @@ export class User {
 
   @DeleteDateColumn()
   deletedAt?: Date;
-
 }
