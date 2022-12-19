@@ -2,8 +2,8 @@ import { beforeEach, describe, expect, test } from "vitest";
 import { AppError } from "../../../../shared/errors/AppError";
 import { CreateUserAddressDTO, CreateUserDTO } from "../../DTO/CreateUserDTO";
 import { User } from "../../../../entities/User";
-import { InMemoryUserAddressRepository } from "../../in-memory/repositories/InMemoryUserAddressRepository";
-import { InMemoryUsersRepository } from "../../in-memory/repositories/InMemoryUserRepository";
+import { InMemoryUserAddressRepository } from "../../../../shared/test/repositories/InMemoryUserAddressRepository";
+import { InMemoryUsersRepository } from "../../../../shared/test/repositories/InMemoryUserRepository";
 import { CreateUserAddressUseCase } from "./CreateUserAddressUseCase";
 
 let usersRepository: InMemoryUsersRepository

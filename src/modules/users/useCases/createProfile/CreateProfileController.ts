@@ -9,6 +9,7 @@ export class CreateProfileController {
         const photo = req.file?.filename as string
 
         const createProfileUseCase = container.resolve(CreateProfileUseCase)
+
         const profile = await createProfileUseCase.execute({
             photo, 
             user_id: id

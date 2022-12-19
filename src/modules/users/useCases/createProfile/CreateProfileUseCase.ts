@@ -20,9 +20,9 @@ export class CreateProfileUseCase {
     async execute({ photo, user_id }: createProfileDTO): Promise<Profile>{
         const user = await this.usersRepository.findByID(user_id)
         if (!user) throw new AppError("User not found!")
-
+        
         await this.storageProvider.save(photo, 'profile');
-
+        
         return await this.profileRepository.create(photo, user as User)
     }
 }

@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, test } from "vitest";
 import { User } from "../../../../entities/User";
 import { AppError } from "../../../../shared/errors/AppError";
-import { InMemoryUsersRepository } from "../../in-memory/repositories/InMemoryUserRepository";
+import { InMemoryUsersRepository } from "../../../../shared/test/repositories/InMemoryUserRepository";
 import { CreateUserUseCase } from "../createUser/CreateUserUseCase";
 import { DeleteUserUseCase } from "./DeleteUserUseCase";
 

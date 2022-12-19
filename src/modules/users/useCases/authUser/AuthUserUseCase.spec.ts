@@ -1,6 +1,6 @@
 import { expect, test, describe, beforeEach } from "vitest"
 import { AppError } from "../../../../shared/errors/AppError";
-import { InMemoryUsersRepository } from "../../in-memory/repositories/InMemoryUserRepository";
+import { InMemoryUsersRepository } from "../../../../shared/test/repositories/InMemoryUserRepository";
 import { CreateUserUseCase } from "../createUser/CreateUserUseCase";
 import { AuthUserUseCase } from "./AuthUserUseCase";
 

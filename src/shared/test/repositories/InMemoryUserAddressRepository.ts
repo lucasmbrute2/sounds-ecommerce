@@ -1,8 +1,8 @@
-import { AppError } from "../../../../shared/errors/AppError";
-import { IUserAddressRespository } from "../../contracts/IUserAddressRespository";
-import { CreateUserAddressDTO } from "../../DTO/CreateUserDTO";
-import { User } from "../../../../entities/User";
-import { UserAddress } from "../../../../entities/UserAddress";
+import { AppError } from "../../errors/AppError";
+import { IUserAddressRespository } from "../../../modules/users/contracts/IUserAddressRespository";
+import { CreateUserAddressDTO } from "../../../modules/users/DTO/CreateUserDTO";
+import { User } from "../../../entities/User";
+import { UserAddress } from "../../../entities/UserAddress";
 
 export class InMemoryUserAddressRepository implements IUserAddressRespository {
     private repository: UserAddress[] = [];

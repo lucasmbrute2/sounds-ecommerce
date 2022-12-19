@@ -1,6 +1,6 @@
-import { Profile } from "../../../../entities/Profile";
-import { User } from "../../../../entities/User";
-import { IProfileRepository } from "../../contracts/IProfileRepository";
+import { Profile } from "../../../entities/Profile";
+import { User } from "../../../entities/User";
+import { IProfileRepository } from "../../../modules/users/contracts/IProfileRepository";
 
 export class InMemoryProfileRepository implements IProfileRepository {
     private repository: Profile[] = [];
